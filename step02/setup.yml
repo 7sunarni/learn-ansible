@@ -1,0 +1,28 @@
+---
+- hosts: player1
+  become: true
+  become_user: root
+  remote_user: root
+  gather_facts: false
+  tasks:
+   - name: Player1 work
+     shell: echo "I'm belong to player1" > ~/ansible/ansible/player
+
+- hosts: player2
+  become: true
+  become_user: root
+  remote_user: root
+  gather_facts: false
+  tasks:
+   - name: Player2 work
+     shell: echo "I'm belong to player2" > ~/ansible/ansible/player
+
+- hosts: player3
+  become: true
+  become_user: root
+  remote_user: root
+  gather_facts: false
+  tasks:
+   - name: Player3 work
+     shell: echo "I'm belong to player3" > ~/ansible/ansible/player
+     

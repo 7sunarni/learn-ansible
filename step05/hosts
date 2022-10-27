@@ -1,0 +1,8 @@
+[player1]
+host0 ansible_host=192.168.0.2 ansible_user=root ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+[player2]
+host1 ansible_host=192.168.0.3 ansible_user=root ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+[player3]
+host2 ansible_host=192.168.0.4 ansible_user=root ansible_ssh_common_args='-o StrictHostKeyChecking=no'

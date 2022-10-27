@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+# TODO: custom container count
+  h1:
+    build: .
+    image: python-ssh:v1
+    networks:
+       br:
+        ipv4_address: 192.168.0.2
+  h2:
+    image: python-ssh:v1
+    networks:
+       br:
+        ipv4_address: 192.168.0.3
+  h3:
+    image: python-ssh:v1
+    networks:
+       br:
+        ipv4_address: 192.168.0.4
+
+networks:
+  br:
+    driver: bridge
+    ipam:
+      driver: "default"
+      config:
+        - subnet: 192.168.0.0/24

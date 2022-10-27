@@ -1,0 +1,10 @@
+- hosts: all
+  become: true
+  become_user: root
+  remote_user: root
+  gather_facts: false
+  tasks:
+   - name: Custome module
+     my_custom_py_module:
+
+    

@@ -1,0 +1,17 @@
+- hosts: all
+  become: true
+  become_user: root
+  remote_user: root
+  gather_facts: false
+  tasks:
+    - name: Try view google
+      ansible.builtin.command: curl https://www.google.com --silent --connect-timeout 2
+      register: view_google
+      ignore_errors: true
+    - name: View baidu is view google failed
+      ansible.builtin.shell: curl https://www.baidu.com --silent --connect-timeout 2
+      when: view_google.rc != 0
+        
+  handlers:
+    - name: Success
+      ansible.builtin.shell: echo "success"

@@ -1,0 +1,28 @@
+- hosts: all
+  become: true
+  become_user: root
+  remote_user: root
+  gather_facts: false
+  tasks:
+    - name: Create directory
+      ansible.builtin.file:
+        state: directory
+        mode: 0700
+        dest: ~/ansible/ansible
+    
+    - name: Copy file
+      ansible.builtin.copy:
+        src: ./hello-world
+        dest: ~/ansible/ansible/
+        mode: 0700
+      
+    - name: Change file content
+      ansible.builtin.replace:
+        path: ~/ansible/ansible/hello-world
+        regexp: 'hello'
+        replace: "{{ ansible_host }}"
+
+    - name: Copy file back
+      ansible.builtin.fetch:
+        src: ~/ansible/ansible/hello-world
+        dest: ../copy/step01/

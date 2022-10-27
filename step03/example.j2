@@ -1,0 +1,6 @@
+{% for group_name, group_items in groups.items() %}
+    group_name: {{ group_name }} , group_length: {{ group_items|length }}
+    {% for group_item in group_items %}
+    group_item {{ group_item }}
+    {% endfor %}
+{% endfor %}

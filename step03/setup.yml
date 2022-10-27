@@ -1,0 +1,12 @@
+- hosts: all
+  become: true
+  become_user: root
+  remote_user: root
+  gather_facts: false
+  tasks:
+   - name: Template file
+     ansible.builtin.template:
+       src: ./example.j2
+       dest: ~/ansible/ansible/example
+
+    
